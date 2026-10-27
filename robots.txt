@@ -1,0 +1,3 @@
+# Sitemap is also available on /sitemap.xml
+Sitemap: https://www.pearsonbuilding.co.uk/sitemap.xml
+User-agent: *

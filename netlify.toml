@@ -1,0 +1,39 @@
+[build]
+  publish = "."
+
+# Pages are served as phelps.html etc. -> /phelps (pretty URLs on by default)
+[[redirects]]
+  from = "https://pearsonbuilding.co.uk/*"
+  to = "https://www.pearsonbuilding.co.uk/:splat"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/editor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/libs/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_mobile/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/feed/atom"
+  [headers.values]
+    Content-Type = "application/atom+xml; charset=UTF-8"
+
+[[headers]]
+  for = "/feed/rss2"
+  [headers.values]
+    Content-Type = "text/xml; charset=UTF-8"
