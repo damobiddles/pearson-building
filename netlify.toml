@@ -8,13 +8,6 @@
   status = 301
   force = true
 
-# TEMPORARY: keeps the .netlify.app preview out of search results while the
-# live site is still on Duda. Delete this block when the domain moves to Netlify.
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-
 [[headers]]
   for = "/assets/*"
   [headers.values]
