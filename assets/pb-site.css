@@ -156,3 +156,65 @@
 #dm div.dmContent .pb-intro p { margin: 12px 0 0; font-size: 18px; font-weight: 300; line-height: 1.6; color: #013537; }
 #dm div.dmContent .pb-intro a { color: #cc043c; }
 @media (max-width: 767px) { #dm div.dmContent .pb-intro p { font-size: 16px; } }
+
+/* ---- Main navigation: one weight for every state; hover and current page shown with
+   colour and a red underline that draws in from the left, so nothing shifts ---- */
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item.dmNavItemSelected,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item.hover,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item:hover {
+  font-weight: 500 !important;
+  color: rgba(1, 53, 55, 0.78) !important;
+  transition: color 0.25s ease !important;
+}
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item.dmNavItemSelected,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item.hover,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item:hover,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.unav-item:focus-visible {
+  color: #013537 !important;
+}
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item .nav-item-text {
+  position: relative;
+}
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item .nav-item-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  width: auto;
+  height: 2px;
+  margin: 0;
+  border: 0;
+  background: #cc043c;
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.dmNavItemSelected .nav-item-text::after,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item.hover .nav-item-text::after,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item:hover .nav-item-text::after,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a.unifiednav__item:focus-visible .nav-item-text::after {
+  transform: scaleX(1);
+}
+/* Dropdown and drawer sub-items: same weight, colour change only */
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item:hover,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item.dmNavItemSelected {
+  font-weight: 400 !important;
+  color: rgba(1, 53, 55, 0.78) !important;
+}
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item {
+  transition: color 0.25s ease, background-color 0.25s ease !important;
+}
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item:hover,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item.hover,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item.dmNavItemSelected,
+html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifiednav__container[data-depth] a.unifiednav__item.unifiednav__item.unifiednav__item[aria-current="page"] {
+  color: #cc043c !important;
+  background-color: rgba(204, 4, 60, 0.06) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html #dm nav.main-navigation.unifiednav.dmLinksMenu .nav-item-text::after { transition: none !important; }
+}
