@@ -2,6 +2,21 @@
    One type scale for headings and body text, plus the end-of-page call-to-action,
    the phone call button and other small components added after the Duda export. */
 
+/* Fraunces (SIL Open Font License) for page titles and section headings; DM Sans stays for everything else */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/fraunces/fraunces-latin-var.woff2") format("woff2");
+}
+#dm div.dmContent h1, #dm div.dmContent h1 *,
+#dm div.dmContent h2, #dm div.dmContent h2 * {
+  font-family: "Fraunces", Georgia, serif !important;
+  font-optical-sizing: auto;
+}
+#dm div.dmContent h2.pb-phone, #dm div.dmContent h2.pb-phone * { font-family: "DM Sans", "DM Sans Fallback", sans-serif !important; }
+
 /* ---- Type scale (desktop; phone sizes in the media query below) ---- */
 #dm div.dmContent h1 {
   font-size: 48px !important;
