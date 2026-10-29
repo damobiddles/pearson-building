@@ -8,6 +8,37 @@
   status = 301
   force = true
 
+# Serve each page at one URL only (no /phelps.html duplicates)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/phelps.html"
+  to = "/phelps"
+  status = 301
+
+[[redirects]]
+  from = "/project-videos.html"
+  to = "/project-videos"
+  status = 301
+
+[[redirects]]
+  from = "/tanners-farm-house.html"
+  to = "/tanners-farm-house"
+  status = 301
+
+[[redirects]]
+  from = "/castle-hill-new-build.html"
+  to = "/castle-hill-new-build"
+  status = 301
+
 [[headers]]
   for = "/assets/*"
   [headers.values]
