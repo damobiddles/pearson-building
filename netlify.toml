@@ -24,11 +24,6 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/_mobile/*"
-  [headers.values]
-    X-Robots-Tag = "noindex"
-
-[[headers]]
   for = "/feed/atom"
   [headers.values]
     Content-Type = "application/atom+xml; charset=UTF-8"
