@@ -218,3 +218,83 @@ html #dm nav.main-navigation.unifiednav.dmLinksMenu .unifiednav__container.unifi
 @media (prefers-reduced-motion: reduce) {
   html #dm nav.main-navigation.unifiednav.dmLinksMenu .nav-item-text::after { transition: none !important; }
 }
+
+/* ---- iPad and other tablets (768–1024px wide) ----
+   Tablets get the desktop pages, which Duda lays out with its own tablet header (logo, button and
+   a menu drawer) and per-widget tablet margins. These rules tidy that layout; they only apply to
+   the desktop pages in this width range, so desktop (1025px+) and the phone pages are unchanged. */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Header: white like desktop, button styled like desktop, menu icon clear of the button */
+  body#dmRoot.dmDesktopBody #dm #hamburger-header { background-color: #fff !important; }
+  body#dmRoot.dmDesktopBody #dm #hamburger-header .dmRespRow.u_1705692124 { padding-right: 104px !important; }
+  body#dmRoot.dmDesktopBody #dm #hamburger-header .dmRespCol.medium-6:last-child { display: flex !important; flex-direction: row !important; justify-content: flex-end !important; align-items: center !important; }
+  body#dmRoot.dmDesktopBody #dm .p_hfcontainer a.u_1093406081 {
+    width: 200px !important;
+    max-width: 200px !important;
+    height: 55px !important;
+    margin: 0 0 10px !important;
+  }
+  body#dmRoot.dmDesktopBody #dm .p_hfcontainer a.u_1093406081 .text {
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+    line-height: 55px !important;
+  }
+  /* Duda's script centres the menu icon on the whole header (inline top, once scrolled); nudge it level with the button */
+  body#dmRoot.dmDesktopBody #dm .p_hfcontainer a.u_1652060487 .text { font-weight: 700 !important; }
+  body#dmRoot.dmDesktopBody .layout-drawer-hamburger { top: 54.5px !important; right: 29px !important; }
+  body#dmRoot.dmDesktopBody .layout-drawer-hamburger.hamburger-on-scrolled-header { margin-top: 13.5px !important; }
+
+  /* Menu drawer: wide enough that "Case Studies" keeps its arrow and sub-pages fit on one line */
+  body#dmRoot.dmDesktopBody #dm .p_hfcontainer #hamburger-drawer.layout-drawer:not([data-origin=top]) { width: max(35vw, 340px) !important; }
+  body#dmRoot.dmDesktopBody [dmtemplateid=Hamburger].runtime-module-container.layout-drawer_open.layout-drawer_push-content.hamburger-reverse { transform: translate(min(-35vw, -340px), 0) !important; }
+  body#dmRoot.dmDesktopBody .layout-drawer nav.unifiednav { width: 100% !important; }
+  body#dmRoot.dmDesktopBody .layout-drawer nav.unifiednav .unifiednav__container:not([data-depth]) > .unifiednav__item-wrap > a .nav-item-text { white-space: nowrap !important; }
+
+  /* Rows nested inside a column don't add their own 40px side padding, so content lines up */
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespCol .dmRespRow { padding-left: 0 !important; padding-right: 0 !important; }
+
+  /* Home page title: centred (Duda's tablet margins pushed it right) */
+  body#dmRoot.dmDesktopBody #dm .dmBody div.u_1722028889 { width: 100% !important; margin: 0 0 8px !important; }
+
+  /* Videos keep their shape instead of a fixed 360px height */
+  body#dmRoot.dmDesktopBody #dm #dm_content .youtubeExt.youtubeExt {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+  }
+  body#dmRoot.dmDesktopBody #dm #dm_content .youtubeExt .innerYoutubeExt { height: 100% !important; padding: 0 !important; }
+
+  /* Home "About" text doesn't run into the photo */
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespCol.u_1224939954 { padding-right: 32px !important; }
+  body#dmRoot.dmDesktopBody #dm .dmBody div.u_1015980970 { width: 100% !important; margin-right: 0 !important; }
+
+  /* Contact: the phone number stays on one line */
+  body#dmRoot.dmDesktopBody #dm div.dmContent h2.pb-phone { white-space: nowrap !important; }
+  body#dmRoot.dmDesktopBody #dm .dmBody div.u_1309835493 { width: 100% !important; max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+}
+
+/* iPad portrait (768–900px): side-by-side sections stack so text and videos get the full width */
+@media (min-width: 768px) and (max-width: 900px) {
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow:has(> .dmRespColsWrapper > .dmRespCol > .youtubeExt) > .dmRespColsWrapper > .dmRespCol,
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1773077451 > .dmRespColsWrapper > .dmRespCol,
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1983414956 > .dmRespColsWrapper > .dmRespCol {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow:has(> .dmRespColsWrapper > .dmRespCol > .youtubeExt) > .dmRespColsWrapper,
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1773077451 > .dmRespColsWrapper,
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1983414956 > .dmRespColsWrapper { flex-wrap: wrap !important; }
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow:has(> .dmRespColsWrapper > .dmRespCol > .youtubeExt) > .dmRespColsWrapper > .dmRespCol + .dmRespCol { margin-top: 24px !important; }
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow:has(> .dmRespColsWrapper > .dmRespCol > .youtubeExt) .dmNewParagraph { width: 100% !important; margin-right: 0 !important; }
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow:has(> .dmRespColsWrapper > .dmRespCol > .youtubeExt) .imageWidget,
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow:has(> .dmRespColsWrapper > .dmRespCol > .youtubeExt) .imageWidget img { width: 100% !important; height: auto !important; }
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1773077451 > .dmRespColsWrapper > .dmRespCol + .dmRespCol { margin-top: 40px !important; }
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1773077451 .dmNewParagraph,
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1983414956 .dmNewParagraph { width: 100% !important; max-width: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+  body#dmRoot.dmDesktopBody #dm #dm_content .dmRespRow.u_1983414956 > .dmRespColsWrapper > .dmRespCol + .dmRespCol { margin-top: 32px !important; }
+}
